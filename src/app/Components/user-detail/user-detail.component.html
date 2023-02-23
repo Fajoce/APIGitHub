@@ -1,0 +1,28 @@
+<div class="container mt-5">  
+    <mat-card id="card">         
+    <div *ngIf="user$ | async as user" class="container text-center" style="width:50% ;">
+        <div class="card mb-3"  id="container" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4 bg bg-secondary">
+                <h3><span class="badge bg-primary">{{user.login}}</span></h3>               
+                <img src={{user.avatar_url}} class="img-fluid rounded-start text-center" alt="avatar">
+               <br> 
+             <h3><span class="badge bg-primary">{{user.created_at|date}}</span></h3>
+            </div>
+              <div class="col-md-8 text-white">
+                <div class="card-body bg bg-primary">
+                  <h1 class="card-title">{{user.name}}</h1>
+                   <mat-icon>place</mat-icon>{{user.location}} <mat-icon>whatshot</mat-icon>@{{user.twitter_username}}
+                  <h3 class="text-center"><mat-icon>sync_problem</mat-icon>{{user.blog}}</h3>
+                 <div id="columnas" class="bg bg-primary">
+                  <p class="card-text"><small class="text-white">Repos<br><mat-icon>device_hub</mat-icon><br>{{user.public_repos}}</small></p>
+                  <p class="card-text"><small class="text-white">Followers<br><mat-icon>group</mat-icon><mat-icon>group</mat-icon><br>{{user.followers}}</small></p>
+                  <p class="card-text"><small class="text-white">Following<br><mat-icon>group</mat-icon><br>{{user.following}}</small></p>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </mat-card>    
+</div>

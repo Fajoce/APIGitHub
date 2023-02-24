@@ -11,3 +11,16 @@ img{
     height: 130px;
     border-radius: 100%;
 }
+input {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #7c7a7acb;
+    padding: 0 4px 0 4px;
+    height: 30px;
+    width: 200px;
+ }
+
+ #search{
+    text-align: center;
+ }

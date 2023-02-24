@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, window } from 'rxjs';
 import { Users } from 'src/app/Domains/users';
 import { UsersService } from 'src/app/Services/users.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -14,7 +14,9 @@ export class UserDetailComponent {
   name!:string;
   user!: Users;
   user$! :Observable<Users>;
-  
+  loginForm = new FormGroup({
+    userName: new FormControl("", [Validators.required])});
+
 constructor(private userservice: UsersService,
   private activatedRoute: ActivatedRoute,
   private router:Router){
@@ -22,12 +24,17 @@ constructor(private userservice: UsersService,
 }
 
 ngOnInit(){
-  //this.getInspectionById();
-  this.user$ = this.userservice.getUsersName(this.name);
- }
- getUsersById(){
-  /* return this.inspectiontypeservice.getInspectionTypebyId(this.id).subscribe(data=>{
-     this.inspeccion = data;
-   })*/
-   }
+  this.getUsersByName()
+ // this.user$ = this.userservice.getUsersName(this.name);
+  
+  }
+
+  get User(): FormControl {
+    return this.loginForm.get('userName') as FormControl
+  }
+ getUsersByName(){
+       this.user$ = this.userservice.getUsersName(this.name);
+       this.router.navigate(['/getUsuario/'+ this.loginForm.value.userName]);
+             
+      }
 }

@@ -1,13 +1,13 @@
 <div class="container text-center bg-primary display-2">
     <button mat-button [matMenuTriggerFor]="aboveMenu">
-      <mat-icon>home</mat-icon>Users</button>
+      <mat-icon>group</mat-icon>Users</button>
     <mat-menu #aboveMenu="matMenu" yPosition="above">
-      <button mat-menu-item routerLink='/Users'>Users</button>
+      <button mat-menu-item routerLink='/Users'>List of Users</button>
     </mat-menu>
     
-  <button mat-button [matMenuTriggerFor]="beforeMenu">Details</button>
+  <button mat-button [matMenuTriggerFor]="beforeMenu"><mat-icon>chrome_reader_mode</mat-icon>Details</button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
-    <button mat-menu-item routerLink='/Details'>Details</button>    
+    <button mat-menu-item routerLink='/Details'>User Details</button>    
   </mat-menu>  
   </div>
   <div  class="text-center">

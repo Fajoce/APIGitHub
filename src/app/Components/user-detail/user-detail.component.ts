@@ -25,8 +25,6 @@ constructor(private userservice: UsersService,
 
 ngOnInit(){
   this.getUsersByName()
- // this.user$ = this.userservice.getUsersName(this.name);
-  
   }
 
   get User(): FormControl {
@@ -34,7 +32,12 @@ ngOnInit(){
   }
  getUsersByName(){
        this.user$ = this.userservice.getUsersName(this.name);
+       if(this.user$ == undefined){
+        alert('Nada que msotrar')
+       }
+       else{
        this.router.navigate(['/getUsuario/'+ this.loginForm.value.userName]);
-             
+
+      }      
       }
 }
